@@ -206,6 +206,60 @@ header{
 .pillar h3 .dot{color:var(--flame)}
 .pillar p{color:var(--grey);font-size:.98rem}
 
+/* ============ PROCESS ============ */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:step}
+.step{
+  position:relative;border:1px solid var(--line);border-radius:var(--radius);
+  background:var(--coal);padding:28px 24px;counter-increment:step;
+  transition:border-color .2s,transform .2s;
+}
+.step:hover{border-color:rgba(255,107,20,.45);transform:translateY(-3px)}
+.step::before{
+  content:"0" counter(step);
+  font-family:var(--mono);font-size:.8rem;letter-spacing:.2em;color:var(--flame);
+  display:block;margin-bottom:14px;
+}
+.step h3{font-size:1.15rem;margin-bottom:10px}
+.step p{color:var(--grey);font-size:.95rem}
+.step::after{ /* connector arrow */
+  content:"";position:absolute;top:50%;right:-11px;width:8px;height:8px;
+  border-top:2px solid var(--flame);border-right:2px solid var(--flame);
+  transform:translateY(-50%) rotate(45deg);z-index:2;
+}
+.step:last-child::after{display:none}
+
+/* ============ STATS ============ */
+.stats{
+  border:1px solid var(--line);border-radius:var(--radius);background:var(--line);
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;overflow:hidden;
+  margin-top:clamp(44px,6vw,64px);
+}
+.stat{background:var(--coal);padding:30px 20px;text-align:center}
+.stat b{
+  font-family:var(--disp);font-weight:700;font-size:clamp(2rem,4vw,2.9rem);
+  color:var(--flame);display:block;line-height:1;
+}
+.stat span{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--grey);display:block;margin-top:10px;
+}
+
+/* ============ COMPLIANCE ============ */
+#compliance{background:var(--coal);border-block:1px solid var(--line)}
+.comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:start}
+.comp-copy p{color:var(--grey);margin-bottom:18px;font-size:1.05rem}
+.comp-copy p strong{color:var(--white);font-weight:600}
+.comp-list{display:flex;flex-direction:column;gap:12px}
+.comp-item{
+  display:flex;gap:16px;align-items:flex-start;
+  border:1px solid var(--line);border-radius:12px;background:var(--black);padding:18px 20px;
+  transition:border-color .2s;
+}
+.comp-item:hover{border-color:rgba(255,107,20,.45)}
+.comp-item svg{width:22px;height:22px;color:var(--flame);flex:0 0 auto;margin-top:2px}
+.comp-item b{font-family:var(--disp);font-weight:600;text-transform:uppercase;letter-spacing:.04em;font-size:.98rem;display:block;margin-bottom:4px}
+.comp-item p{color:var(--grey);font-size:.92rem}
+
 /* ============ SERVICES ============ */
 #services{background:var(--coal);border-block:1px solid var(--line)}
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -349,6 +403,9 @@ footer{border-top:1px solid var(--line);padding-top:clamp(48px,6vw,72px)}
   .svc-grid{grid-template-columns:repeat(2,1fr)}
   .client-grid{grid-template-columns:repeat(3,1fr)}
   .foot-grid{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .step::after{display:none}
+  .stats{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:900px){
   .nav-links,.nav .btn{display:none}
@@ -358,6 +415,7 @@ footer{border-top:1px solid var(--line);padding-top:clamp(48px,6vw,72px)}
   .hero{background:radial-gradient(600px 380px at 85% 0%,var(--glow),transparent 70%)}
   .about-grid{grid-template-columns:1fr}
   .pillars{grid-template-columns:1fr}
+  .comp-grid{grid-template-columns:1fr}
   .cta-panel{grid-template-columns:1fr}
   .case{grid-template-columns:1fr;gap:18px}
   .case-stats{flex-direction:row;flex-wrap:wrap}
@@ -366,6 +424,7 @@ footer{border-top:1px solid var(--line);padding-top:clamp(48px,6vw,72px)}
 }
 @media (max-width:640px){
   .svc-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
   .client-grid{grid-template-columns:repeat(2,1fr)}
   .disciplines{grid-template-columns:repeat(2,1fr)}
   .field-row{grid-template-columns:1fr}
@@ -439,6 +498,16 @@ footer{border-top:1px solid var(--line);padding-top:clamp(48px,6vw,72px)}
     },
     {
       "@type": "Question",
+      "name": "How do your works support the Building Safety Act and the golden thread?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Under the Building Safety Act 2022 and Fire Safety Act 2021, duty holders must be able to evidence the fire safety measures in their buildings. NQB installs tested, certificated systems to the manufacturer's specification and documents the works at handover — supporting the golden thread of building safety information." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can passive fire protection support net zero goals?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — correctly sealed penetrations and closed cavities improve airtightness and energy performance, and durable tested systems that last the life of the building avoid the waste and embodied carbon of repeat replacement." }
+    },
+    {
+      "@type": "Question",
       "name": "Which fire protection manufacturers do you work with?",
       "acceptedAnswer": { "@type": "Answer", "text": "NQB has worked with all the leading fire protection manufacturers and has comprehensive knowledge of their products and systems — including Firefly, Rockwool, Promat, Magply and Fermasteel systems referenced across our services and completed works." }
     }
@@ -460,6 +529,7 @@ footer{border-top:1px solid var(--line);padding-top:clamp(48px,6vw,72px)}
     <nav class="nav-links" aria-label="Primary">
       <a href="#about">Who we are</a>
       <a href="#services">Services</a>
+      <a href="#compliance">Compliance</a>
       <a href="#projects">Projects</a>
       <a href="#clients">Clients</a>
     </nav>
@@ -471,6 +541,7 @@ footer{border-top:1px solid var(--line);padding-top:clamp(48px,6vw,72px)}
   <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
     <a href="#about">Who we are</a>
     <a href="#services">Services</a>
+    <a href="#compliance">Compliance</a>
     <a href="#projects">Projects</a>
     <a href="#clients">Clients</a>
     <a href="#contact" style="color:var(--flame)">Request a survey</a>
@@ -594,6 +665,43 @@ footer{border-top:1px solid var(--line);padding-top:clamp(48px,6vw,72px)}
   </div>
 </section>
 
+<!-- ================= PROCESS ================= -->
+<section id="process" aria-labelledby="process-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">How we work</p>
+      <h2 id="process-title">Survey<span class="dot">.</span> Specify<span class="dot">.</span> Install<span class="dot">.</span> <span class="alt">Evidence</span><span class="dot">.</span></h2>
+      <p>One accountable team from first site visit to handover documentation — engaging us early reduces the risk of specification conflict and abortive works later in the programme.</p>
+    </div>
+    <div class="steps">
+      <div class="step rev">
+        <h3>Survey</h3>
+        <p>We inspect the building — risers, ceiling voids, lofts, service penetrations — and record the actual condition of compartmentation, not assumptions.</p>
+      </div>
+      <div class="step rev">
+        <h3>Specify</h3>
+        <p>The right tested system for each detail, drawn from every leading manufacturer's range, matched to the building's fire strategy.</p>
+      </div>
+      <div class="step rev">
+        <h3>Install</h3>
+        <p>Supply and installation by directly managed teams — including occupied buildings, with exclusion zones, making good and minimal disruption to residents.</p>
+      </div>
+      <div class="step rev">
+        <h3>Evidence</h3>
+        <p>Works recorded and documented at handover, supporting the golden thread of building safety information your duty holders now rely on.</p>
+      </div>
+    </div>
+
+    <!-- Figures derived from the works-completed case studies below -->
+    <div class="stats rev">
+      <div class="stat"><b>12</b><span>Residential blocks — recent packages</span></div>
+      <div class="stat"><b>240+</b><span>Flats surveyed &amp; sealed</span></div>
+      <div class="stat"><b>5</b><span>Core PFP disciplines</span></div>
+      <div class="stat"><b>3</b><span>Sectors served</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= SERVICES ================= -->
 <section id="services" aria-labelledby="services-title">
   <div class="container">
@@ -679,6 +787,41 @@ footer{border-top:1px solid var(--line);padding-top:clamp(48px,6vw,72px)}
         <p style="color:var(--grey);font-size:.98rem">Tell us about the building and we'll survey, specify and price the right system.</p>
         <a class="btn btn-primary" href="#contact" style="margin-top:6px">Talk to us</a>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMPLIANCE ================= -->
+<section id="compliance" aria-labelledby="compliance-title">
+  <div class="container">
+    <div class="comp-grid">
+      <div class="comp-copy rev">
+        <p class="eyebrow">Compliance</p>
+        <h2 id="compliance-title">Built for the new era of <span class="alt">building safety</span><span class="dot">.</span></h2>
+        <p>The <strong>Fire Safety Act 2021</strong> and <strong>Building Safety Act 2022</strong> have changed what clients, principal contractors and duty holders must be able to prove about their buildings. Compartmentation is no longer a box to tick — it's a liability to evidence.</p>
+        <p>We install <strong>tested, certificated systems</strong> to the manufacturer's specification and document what we've done, where and with what — so the information duty holders need is there when they need it.</p>
+        <p>Good fire stopping is good building physics, too: sealed penetrations and closed cavities improve <strong>airtightness and energy performance</strong>, and systems that last the life of the building avoid the waste and embodied carbon of replacement — fire safety and net zero pulling in the same direction.</p>
+        <!-- TODO(client): confirm accreditations (e.g. FIRAS / BM TRADA / CHAS / Constructionline / SSIP)
+             and add a logo strip here once confirmed. Do not publish unverified accreditations. -->
+      </div>
+      <div class="comp-list rev" aria-label="Compliance commitments">
+        <div class="comp-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.4-2.9 8.2-7 9.5C7.9 19.2 5 15.4 5 11V6l7-3Z"/><path d="m9 12 2 2 4-4.5"/></svg>
+          <div><b>Tested systems only</b><p>Systems installed to the tested detail and manufacturer's specification — never improvised on site.</p></div>
+        </div>
+        <div class="comp-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h8l4 4v14H7z"/><path d="M15 3v4h4M10 12h6M10 16h6"/></svg>
+          <div><b>Golden thread ready</b><p>Installations recorded and evidenced at handover, supporting the building's safety information record.</p></div>
+        </div>
+        <div class="comp-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          <div><b>Early engagement</b><p>Bring us in at design or pre-construction stage to avoid specification conflict and abortive works.</p></div>
+        </div>
+        <div class="comp-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21c4.5-2 6.5-5.5 6.5-9.5V6L12 3.5 5.5 6v5.5c0 4 2 7.5 6.5 9.5Z"/><path d="M12 3.5V21"/></svg>
+          <div><b>Fire safety × net zero</b><p>Durable, correctly sealed compartmentation that also improves airtightness and cuts lifetime material waste.</p></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -776,6 +919,14 @@ footer{border-top:1px solid var(--line);padding-top:clamp(48px,6vw,72px)}
       <details class="faq">
         <summary>Do you work in occupied residential buildings?</summary>
         <p>Yes. Recent packages were delivered across occupied blocks of flats — removing and reinstating ceilings for penetration sealing, working from MEWPs with exclusion zones in place, and making good with minimal disruption to residents.</p>
+      </details>
+      <details class="faq">
+        <summary>How do your works support the Building Safety Act and the golden thread?</summary>
+        <p>Under the Building Safety Act 2022 and Fire Safety Act 2021, duty holders must be able to evidence the fire safety measures in their buildings. We install tested, certificated systems to the manufacturer's specification and document the works at handover — what was installed, where and with what — supporting the golden thread of building safety information.</p>
+      </details>
+      <details class="faq">
+        <summary>Can passive fire protection support net zero goals?</summary>
+        <p>Yes — the two pull in the same direction. Correctly sealed penetrations and closed cavities improve airtightness and energy performance, and durable tested systems that last the life of the building avoid the waste and embodied carbon of repeat replacement.</p>
       </details>
       <details class="faq">
         <summary>Which fire protection manufacturers do you work with?</summary>
