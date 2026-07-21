@@ -385,22 +385,14 @@ header.scrolled{box-shadow:var(--shadow-md)}
 .cta-line a{color:var(--white);border-bottom:1px solid var(--line);transition:border-color .2s,color .2s}
 .cta-line a:hover{color:var(--flame);border-color:var(--flame)}
 .cta-note{margin-top:26px;font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;color:var(--grey);text-transform:uppercase}
-form{display:flex;flex-direction:column;gap:14px}
-.field label{
-  display:block;font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--grey);margin-bottom:7px;
+.cta-direct{
+  display:flex;flex-direction:column;gap:16px;align-items:flex-start;
+  justify-content:center;
+  border-left:1px solid var(--line);padding-left:clamp(0px,4vw,48px);
 }
-.field input,.field textarea{
-  width:100%;background:#fff;border:1px solid var(--line);border-radius:10px;
-  padding:13px 15px;color:var(--white);font-family:var(--body);font-size:1rem;
-  transition:border-color .2s,box-shadow .2s;
-}
-.field textarea{min-height:120px;resize:vertical}
-.field input:focus,.field textarea:focus{
-  outline:none;border-color:var(--flame);box-shadow:0 0 0 3px rgba(192,86,59,.18);
-}
-.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-form .btn{align-self:flex-start;margin-top:6px}
+.cta-direct h3{font-size:1.35rem}
+.cta-direct p{color:var(--grey);max-width:420px}
+.cta-direct .btn{text-transform:none;letter-spacing:.02em}
 
 /* ============ FAQ ============ */
 .faq-list{max-width:840px}
@@ -463,6 +455,7 @@ footer{border-top:1px solid var(--line);padding-top:clamp(48px,6vw,72px)}
   .pillars{grid-template-columns:1fr}
   .comp-grid{grid-template-columns:1fr}
   .cta-panel{grid-template-columns:1fr}
+  .cta-direct{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:28px}
   .case{grid-template-columns:1fr;gap:18px}
   .case-stats{flex-direction:row;flex-wrap:wrap}
   .disciplines{grid-template-columns:repeat(3,1fr)}
@@ -473,7 +466,6 @@ footer{border-top:1px solid var(--line);padding-top:clamp(48px,6vw,72px)}
   .steps{grid-template-columns:1fr}
   .client-grid{grid-template-columns:repeat(2,1fr)}
   .disciplines{grid-template-columns:repeat(2,1fr)}
-  .field-row{grid-template-columns:1fr}
 }
 
 /* ============ REDUCED MOTION ============ */
@@ -1030,30 +1022,12 @@ footer{border-top:1px solid var(--line);padding-top:clamp(48px,6vw,72px)}
         <p class="cta-note">Residential · Commercial · Public sector</p>
       </div>
 
-      <form id="enqForm" aria-label="Enquiry form">
-        <div class="field-row">
-          <div class="field">
-            <label for="f-name">Name</label>
-            <input id="f-name" name="name" type="text" autocomplete="name" required>
-          </div>
-          <div class="field">
-            <label for="f-company">Company</label>
-            <input id="f-company" name="company" type="text" autocomplete="organization">
-          </div>
-        </div>
-        <div class="field">
-          <label for="f-email">Email</label>
-          <input id="f-email" name="email" type="email" autocomplete="email" required>
-        </div>
-        <div class="field">
-          <label for="f-msg">Project details</label>
-          <textarea id="f-msg" name="message" placeholder="Building type, number of blocks, scope required…" required></textarea>
-        </div>
-        <!-- Web3Forms honeypot — hidden from humans, bots fill it in -->
-        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-        <button class="btn btn-primary" type="submit" id="enqSubmit">Send enquiry</button>
-        <p id="formStatus" role="status" aria-live="polite" style="display:none;font-size:.95rem;margin-top:4px"></p>
-      </form>
+      <div class="cta-direct">
+        <h3>Email us directly<span class="dot" style="color:var(--flame)">.</span></h3>
+        <p>Send us the building type, number of blocks and the scope required — we'll come back with a survey date.</p>
+        <a class="btn btn-primary" href="mailto:info@nqbpassivefire.co.uk?subject=Site%20survey%20request">Email info@nqbpassivefire.co.uk</a>
+        <a class="btn btn-ghost" href="tel:+441234567890">Call 01234 567 890</a>
+      </div>
     </div>
   </div>
 </section>
@@ -1200,62 +1174,6 @@ mobileMenu.querySelectorAll('a').forEach(a =>
   items.forEach(i => io.observe(i));
 })();
 
-/* ---------- Enquiry form → Web3Forms (mailto fallback if the request fails) ---------- */
-/* Get a free access key for info@nqbpassivefire.co.uk at https://web3forms.com and paste it below. */
-const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
-
-document.getElementById('enqForm').addEventListener('submit', async e => {
-  e.preventDefault();
-  const form = e.target;
-  const d = new FormData(form);
-  const subject = 'Site survey request — ' + (d.get('company') || d.get('name'));
-
-  const btn = document.getElementById('enqSubmit');
-  const status = document.getElementById('formStatus');
-  const say = (msg, ok) => {
-    status.textContent = msg;
-    status.style.display = 'block';
-    status.style.color = ok ? 'var(--flame)' : 'var(--grey)';
-  };
-
-  const mailtoFallback = () => {
-    const body = encodeURIComponent(
-      'Name: ' + d.get('name') + '\nCompany: ' + (d.get('company') || '—') +
-      '\nEmail: ' + d.get('email') + '\n\n' + d.get('message')
-    );
-    window.location.href = 'mailto:info@nqbpassivefire.co.uk?subject=' + encodeURIComponent(subject) + '&body=' + body;
-  };
-
-  if (WEB3FORMS_KEY === 'YOUR_WEB3FORMS_ACCESS_KEY') { mailtoFallback(); return; }
-
-  d.append('access_key', WEB3FORMS_KEY);
-  d.append('subject', subject);
-  d.append('from_name', 'NQB website enquiry');
-
-  btn.disabled = true;
-  btn.textContent = 'Sending…';
-  try {
-    const res = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { Accept: 'application/json' },
-      body: d
-    });
-    const json = await res.json();
-    if (json.success) {
-      form.reset();
-      say('Thanks — your enquiry has been sent. We\'ll be in touch shortly.', true);
-    } else {
-      say('Sorry, something went wrong — opening your email app instead…', false);
-      mailtoFallback();
-    }
-  } catch (err) {
-    say('Sorry, we couldn\'t reach the server — opening your email app instead…', false);
-    mailtoFallback();
-  } finally {
-    btn.disabled = false;
-    btn.textContent = 'Send enquiry';
-  }
-});
 </script>
 </body>
 </html>
