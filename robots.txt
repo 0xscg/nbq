@@ -1,0 +1,15 @@
+# NQB Passive Fire Protection — update domain when live
+User-agent: *
+Allow: /
+
+# AI crawlers welcome (explicit for clarity)
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://www.nqbfireprotection.co.uk/sitemap.xml
