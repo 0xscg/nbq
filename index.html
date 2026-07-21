@@ -11,7 +11,7 @@
 <!-- SEO: update the domain below once registered -->
 <link rel="canonical" href="https://www.nqbfireprotection.co.uk/">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<meta name="theme-color" content="#0A0A0B">
+<meta name="theme-color" content="#FAF7F2">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NQB Passive Fire Protection">
 <meta property="og:title" content="NQB Passive Fire Protection | Fire Doors & Fire Compartmentation Specialists">
@@ -19,19 +19,20 @@
 <meta property="og:url" content="https://www.nqbfireprotection.co.uk/">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23FF6B14' d='M12 2.2c.6 3.1.1 5.4-1.7 7.1-1-.7-1.6-1.7-1.9-2.9C6.5 8.2 5.4 10.2 5.4 12.8a6.6 6.6 0 0 0 13.2 0c0-4.4-3.3-6.8-6.6-10.6Z'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23C0563B' d='M12 2.2c.6 3.1.1 5.4-1.7 7.1-1-.7-1.6-1.7-1.9-2.9C6.5 8.2 5.4 10.2 5.4 12.8a6.6 6.6 0 0 0 13.2 0c0-4.4-3.3-6.8-6.6-10.6Z'/></svg>">
 <style>
 /* ============ TOKENS ============ */
 :root{
-  --black:#0A0A0B;
-  --coal:#121214;
-  --coal-2:#17171A;
-  --line:rgba(255,255,255,.09);
-  --flame:#FF6B14;
-  --flame-deep:#C94E00;
-  --glow:rgba(255,107,20,.14);
-  --white:#F7F4EF;
-  --grey:#A3A3AB;
+  /* light theme — warm cream base, terracotta accent (var names kept from the original dark theme) */
+  --black:#FAF7F2;      /* page background */
+  --coal:#FFFFFF;       /* card / alt-section background */
+  --coal-2:#FDFBF7;
+  --line:#E8E2D9;
+  --flame:#C0563B;      /* terracotta accent */
+  --flame-deep:#A34530;
+  --glow:rgba(192,86,59,.10);
+  --white:#2B2B33;      /* primary text */
+  --grey:#6B6B74;       /* muted text */
   --disp:'Oswald',sans-serif;
   --body:'Barlow',sans-serif;
   --mono:'IBM Plex Mono',monospace;
@@ -55,7 +56,7 @@ img,svg{display:block}
 a{color:inherit;text-decoration:none}
 ul{list-style:none}
 :focus-visible{outline:2px solid var(--flame);outline-offset:3px;border-radius:4px}
-::selection{background:var(--flame);color:var(--black)}
+::selection{background:var(--flame);color:#fff}
 
 .container{max-width:1180px;margin-inline:auto;padding-inline:clamp(20px,5vw,48px)}
 section{padding-block:clamp(72px,10vw,120px);scroll-margin-top:90px}
@@ -82,8 +83,8 @@ h2 .dot, h1 .dot{color:var(--flame)}
   padding:15px 26px;border-radius:10px;border:1px solid transparent;
   cursor:pointer;transition:transform .18s ease,background .18s ease,border-color .18s ease,color .18s ease;
 }
-.btn-primary{background:var(--flame);color:#140A02}
-.btn-primary:hover{background:#FF7E33;transform:translateY(-2px)}
+.btn-primary{background:var(--flame);color:#fff}
+.btn-primary:hover{background:#CD6A50;transform:translateY(-2px)}
 .btn-ghost{border-color:var(--line);color:var(--white)}
 .btn-ghost:hover{border-color:var(--flame);color:var(--flame)}
 
@@ -94,7 +95,7 @@ h2 .dot, h1 .dot{color:var(--flame)}
 /* ============ HEADER ============ */
 header{
   position:sticky;top:0;z-index:50;
-  background:rgba(10,10,11,.82);backdrop-filter:blur(12px);
+  background:rgba(250,247,242,.85);backdrop-filter:blur(12px);
   border-bottom:1px solid var(--line);
 }
 .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
@@ -152,7 +153,7 @@ header{
 
 /* ============ MARQUEE BAND ============ */
 .band{
-  background:var(--flame);color:#140A02;overflow:hidden;
+  background:var(--flame);color:#FFF6F1;overflow:hidden;
   transform:rotate(-1.4deg) scale(1.02);
   padding-block:13px;margin-block:10px;
   border-block:1px solid var(--flame-deep);
@@ -179,7 +180,7 @@ header{
   display:flex;align-items:center;justify-content:center;min-height:76px;
   transition:color .2s,border-color .2s;
 }
-.client:hover{color:var(--white);border-color:rgba(255,107,20,.45)}
+.client:hover{color:var(--white);border-color:rgba(192,86,59,.45)}
 
 /* ============ ABOUT ============ */
 .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(36px,6vw,72px);align-items:start}
@@ -201,7 +202,7 @@ header{
 }
 .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:clamp(44px,6vw,64px)}
 .pillar{border:1px solid var(--line);border-radius:var(--radius);background:var(--coal);padding:28px;transition:border-color .2s,transform .2s}
-.pillar:hover{border-color:rgba(255,107,20,.45);transform:translateY(-3px)}
+.pillar:hover{border-color:rgba(192,86,59,.45);transform:translateY(-3px)}
 .pillar h3{font-size:1.35rem;margin-bottom:10px}
 .pillar h3 .dot{color:var(--flame)}
 .pillar p{color:var(--grey);font-size:.98rem}
@@ -213,7 +214,7 @@ header{
   background:var(--coal);padding:28px 24px;counter-increment:step;
   transition:border-color .2s,transform .2s;
 }
-.step:hover{border-color:rgba(255,107,20,.45);transform:translateY(-3px)}
+.step:hover{border-color:rgba(192,86,59,.45);transform:translateY(-3px)}
 .step::before{
   content:"0" counter(step);
   font-family:var(--mono);font-size:.8rem;letter-spacing:.2em;color:var(--flame);
@@ -255,7 +256,7 @@ header{
   border:1px solid var(--line);border-radius:12px;background:var(--black);padding:18px 20px;
   transition:border-color .2s;
 }
-.comp-item:hover{border-color:rgba(255,107,20,.45)}
+.comp-item:hover{border-color:rgba(192,86,59,.45)}
 .comp-item svg{width:22px;height:22px;color:var(--flame);flex:0 0 auto;margin-top:2px}
 .comp-item b{font-family:var(--disp);font-weight:600;text-transform:uppercase;letter-spacing:.04em;font-size:.98rem;display:block;margin-bottom:4px}
 .comp-item p{color:var(--grey);font-size:.92rem}
@@ -268,10 +269,10 @@ header{
   padding:30px;display:flex;flex-direction:column;gap:16px;
   transition:border-color .2s,transform .2s,box-shadow .2s;
 }
-.svc:hover{border-color:rgba(255,107,20,.5);transform:translateY(-4px);box-shadow:0 18px 40px -22px rgba(255,107,20,.35)}
+.svc:hover{border-color:rgba(192,86,59,.5);transform:translateY(-4px);box-shadow:0 18px 40px -22px rgba(192,86,59,.35)}
 .svc-icon{
   width:52px;height:52px;border-radius:12px;
-  background:rgba(255,107,20,.1);border:1px solid rgba(255,107,20,.35);
+  background:rgba(192,86,59,.1);border:1px solid rgba(192,86,59,.35);
   display:flex;align-items:center;justify-content:center;color:var(--flame);
 }
 .svc-icon svg{width:26px;height:26px}
@@ -320,14 +321,14 @@ header{
   display:inline-block;margin-top:18px;
   font-family:var(--disp);font-weight:600;font-size:.82rem;
   text-transform:uppercase;letter-spacing:.08em;color:var(--flame);
-  border:1px solid rgba(255,107,20,.4);border-radius:999px;padding:8px 16px;
-  background:rgba(255,107,20,.08);
+  border:1px solid rgba(192,86,59,.4);border-radius:999px;padding:8px 16px;
+  background:rgba(192,86,59,.08);
 }
 
 /* ============ CONTACT ============ */
 .cta-panel{
   border:1px solid var(--line);border-radius:20px;
-  background:linear-gradient(140deg,#1C120A 0%,var(--coal) 45%,var(--black) 100%);
+  background:linear-gradient(140deg,#F6EAE3 0%,var(--coal) 45%,var(--black) 100%);
   padding:clamp(32px,5vw,56px);
   display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);
 }
@@ -345,13 +346,13 @@ form{display:flex;flex-direction:column;gap:14px}
   text-transform:uppercase;color:var(--grey);margin-bottom:7px;
 }
 .field input,.field textarea{
-  width:100%;background:#0C0C0E;border:1px solid var(--line);border-radius:10px;
+  width:100%;background:#fff;border:1px solid var(--line);border-radius:10px;
   padding:13px 15px;color:var(--white);font-family:var(--body);font-size:1rem;
   transition:border-color .2s,box-shadow .2s;
 }
 .field textarea{min-height:120px;resize:vertical}
 .field input:focus,.field textarea:focus{
-  outline:none;border-color:var(--flame);box-shadow:0 0 0 3px rgba(255,107,20,.18);
+  outline:none;border-color:var(--flame);box-shadow:0 0 0 3px rgba(192,86,59,.18);
 }
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 form .btn{align-self:flex-start;margin-top:6px}
@@ -363,7 +364,7 @@ details.faq{
   background:var(--coal);margin-bottom:12px;overflow:hidden;
   transition:border-color .2s;
 }
-details.faq[open]{border-color:rgba(255,107,20,.45)}
+details.faq[open]{border-color:rgba(192,86,59,.45)}
 details.faq summary{
   cursor:pointer;list-style:none;
   display:flex;justify-content:space-between;align-items:center;gap:16px;
@@ -782,7 +783,7 @@ footer{border-top:1px solid var(--line);padding-top:clamp(48px,6vw,72px)}
         </ul>
       </article>
 
-      <article class="svc rev" style="justify-content:center;align-items:flex-start;background:linear-gradient(150deg,rgba(255,107,20,.12),var(--black) 65%)">
+      <article class="svc rev" style="justify-content:center;align-items:flex-start;background:linear-gradient(150deg,rgba(192,86,59,.12),var(--black) 65%)">
         <h3 style="font-size:1.35rem">Not sure what your project needs<span class="dot" style="color:var(--flame)">?</span></h3>
         <p style="color:var(--grey);font-size:.98rem">Tell us about the building and we'll survey, specify and price the right system.</p>
         <a class="btn btn-primary" href="#contact" style="margin-top:6px">Talk to us</a>
@@ -976,7 +977,10 @@ footer{border-top:1px solid var(--line);padding-top:clamp(48px,6vw,72px)}
           <label for="f-msg">Project details</label>
           <textarea id="f-msg" name="message" placeholder="Building type, number of blocks, scope required…" required></textarea>
         </div>
-        <button class="btn btn-primary" type="submit">Send enquiry</button>
+        <!-- Web3Forms honeypot — hidden from humans, bots fill it in -->
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <button class="btn btn-primary" type="submit" id="enqSubmit">Send enquiry</button>
+        <p id="formStatus" role="status" aria-live="polite" style="display:none;font-size:.95rem;margin-top:4px"></p>
       </form>
     </div>
   </div>
@@ -1076,7 +1080,7 @@ mobileMenu.querySelectorAll('a').forEach(a =>
   buildings.forEach((b, bi) => {
     svg.appendChild(el('rect', {
       x: b.x, y: b.y, width: b.w, height: b.h, rx: 3,
-      fill: '#0E0E10', stroke: 'rgba(255,255,255,.10)'
+      fill: '#FFFFFF', stroke: '#E8E2D9'
     }));
     const pad = 16, g = 8;
     const winW = (b.w - pad * 2 - g * (b.cols - 1)) / b.cols;
@@ -1084,9 +1088,9 @@ mobileMenu.querySelectorAll('a').forEach(a =>
     for (let r = 0; r < b.rows; r++) {
       for (let c = 0; c < b.cols; c++) {
         const seed = (r * 31 + c * 17 + bi * 13) % 97;
-        let fill = '#1B1B1F', op = 1;
-        if (seed < 16) { fill = '#FF7A24'; op = 0.9; }
-        else if (seed < 28) { fill = '#FF7A24'; op = 0.26; }
+        let fill = '#F0EAE1', op = 1;
+        if (seed < 16) { fill = '#C0563B'; op = 0.85; }
+        else if (seed < 28) { fill = '#C0563B'; op = 0.22; }
         svg.appendChild(el('rect', {
           x: b.x + pad + c * (winW + g),
           y: b.y + pad + r * (winH + g),
@@ -1097,8 +1101,8 @@ mobileMenu.querySelectorAll('a').forEach(a =>
     }
   });
   /* rooftop mast + beacon on the main tower */
-  svg.appendChild(el('line', { x1: 300, y1: 42, x2: 300, y2: 14, stroke: 'rgba(255,255,255,.18)', 'stroke-width': 2 }));
-  svg.appendChild(el('circle', { cx: 300, cy: 12, r: 3, fill: '#FF6B14' }));
+  svg.appendChild(el('line', { x1: 300, y1: 42, x2: 300, y2: 14, stroke: 'rgba(43,43,51,.25)', 'stroke-width': 2 }));
+  svg.appendChild(el('circle', { cx: 300, cy: 12, r: 3, fill: '#C0563B' }));
 })();
 
 /* ---------- Scroll reveal ---------- */
@@ -1116,16 +1120,61 @@ mobileMenu.querySelectorAll('a').forEach(a =>
   items.forEach(i => io.observe(i));
 })();
 
-/* ---------- Enquiry form → opens a pre-filled email ---------- */
-document.getElementById('enqForm').addEventListener('submit', e => {
+/* ---------- Enquiry form → Web3Forms (mailto fallback if the request fails) ---------- */
+/* Get a free access key for info@nqbpassivefire.co.uk at https://web3forms.com and paste it below. */
+const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
+
+document.getElementById('enqForm').addEventListener('submit', async e => {
   e.preventDefault();
-  const d = new FormData(e.target);
-  const subject = encodeURIComponent('Site survey request — ' + (d.get('company') || d.get('name')));
-  const body = encodeURIComponent(
-    'Name: ' + d.get('name') + '\nCompany: ' + (d.get('company') || '—') +
-    '\nEmail: ' + d.get('email') + '\n\n' + d.get('message')
-  );
-  window.location.href = 'mailto:info@nqbpassivefire.co.uk?subject=' + subject + '&body=' + body;
+  const form = e.target;
+  const d = new FormData(form);
+  const subject = 'Site survey request — ' + (d.get('company') || d.get('name'));
+
+  const btn = document.getElementById('enqSubmit');
+  const status = document.getElementById('formStatus');
+  const say = (msg, ok) => {
+    status.textContent = msg;
+    status.style.display = 'block';
+    status.style.color = ok ? 'var(--flame)' : 'var(--grey)';
+  };
+
+  const mailtoFallback = () => {
+    const body = encodeURIComponent(
+      'Name: ' + d.get('name') + '\nCompany: ' + (d.get('company') || '—') +
+      '\nEmail: ' + d.get('email') + '\n\n' + d.get('message')
+    );
+    window.location.href = 'mailto:info@nqbpassivefire.co.uk?subject=' + encodeURIComponent(subject) + '&body=' + body;
+  };
+
+  if (WEB3FORMS_KEY === 'YOUR_WEB3FORMS_ACCESS_KEY') { mailtoFallback(); return; }
+
+  d.append('access_key', WEB3FORMS_KEY);
+  d.append('subject', subject);
+  d.append('from_name', 'NQB website enquiry');
+
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body: d
+    });
+    const json = await res.json();
+    if (json.success) {
+      form.reset();
+      say('Thanks — your enquiry has been sent. We\'ll be in touch shortly.', true);
+    } else {
+      say('Sorry, something went wrong — opening your email app instead…', false);
+      mailtoFallback();
+    }
+  } catch (err) {
+    say('Sorry, we couldn\'t reach the server — opening your email app instead…', false);
+    mailtoFallback();
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Send enquiry';
+  }
 });
 </script>
 </body>
